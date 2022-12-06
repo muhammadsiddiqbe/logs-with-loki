@@ -47,6 +47,7 @@ services:
     networks:
       - upost-frontend
       - loki
+    logging: *loki-logging
 
   nginx:
       image: nginx
