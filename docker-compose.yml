@@ -44,8 +44,6 @@ services:
       image: nginx
       ports:
         - "7777:80"
-      networks:
-        - loki
       logging: *loki-logging
 
 volumes:
