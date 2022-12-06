@@ -59,3 +59,4 @@ volumes:
 
 networks:
   loki:
+  upost-frontend:
