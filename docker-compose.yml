@@ -40,6 +40,14 @@ services:
       GF_SECURITY_ADMIN_PASSWORD: 1234
     logging: *loki-logging
 
+  frontend:
+    image: gitlab.mollys.uz:5050/upost/frontend/main-frontend:master
+    ports:
+      - "5000:80"
+    networks:
+      - upost-frontend
+      - loki
+
   nginx:
       image: nginx
       ports:
