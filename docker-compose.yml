@@ -71,6 +71,7 @@ services:
     restart: always
     networks:
       -  redis
+    logging: *loki-logging
 
 volumes:
   grafana-data:
