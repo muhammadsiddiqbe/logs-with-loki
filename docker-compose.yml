@@ -46,9 +46,36 @@ services:
         - "7777:80"
       logging: *loki-logging
 
+  backend:
+    image: gitlab.mollys.uz:5050/upost/backend/upost-backend:main
+    ports:
+      - "4000:4000"
+    logging: *loki-logging
+
+  frontend:
+    image: gitlab.mollys.uz:5050/upost/frontend/main-frontend:master
+    ports:
+      - "5000:80"
+    logging: *loki-logging
+    networks:
+     - redis
+
+  redis:
+    image: redis:alpine
+    container_name: redis_db
+    command: redis-server --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data:/data
+    restart: always
+    networks:
+      -  redis
+
 volumes:
   grafana-data:
 
 networks:
   loki:
   upost-frontend:
+  redis:
