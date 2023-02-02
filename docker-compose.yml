@@ -7,17 +7,15 @@ x-logging: &loki-logging
 
 services:
   backend:
-    image: gitlab.mollys.uz:5050/upost/backend/upost-backend:{IMAGE_TAG}
+    image: gitlab.mollys.uz:5050/upost/backend/upost-backend:dev
     ports:
       - "4000:4000"
     logging: *loki-logging
     networks:
      - redis
-    depends_on:
-     - redis
 
   frontend:
-    image: gitlab.mollys.uz:5050/upost/frontend/main-frontend:${IMAGE_TAG}
+    image: gitlab.mollys.uz:5050/upost/frontend/main-frontend:dev
     ports:
       - "5000:80"
     logging: *loki-logging
