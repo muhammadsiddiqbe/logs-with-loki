@@ -6,3 +6,5 @@ stack-deploy:
 stack-rm:
 	docker stack rm ${STACK_NAME}
 
+
+docker login ${DOCKER_HOST} -u ${DOCKER_USERNAME} -p ${DOCKER_TOKEN}
